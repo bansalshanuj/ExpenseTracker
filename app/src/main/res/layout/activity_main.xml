@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin_main_layout"
+    android:paddingBottom="@dimen/activity_vertical_margin_main_layout" tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView android:text="@string/expense_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:textSize="25dp"
+        />
+
+    <TextView
+        android:padding="5dp"
+        android:text="@string/expense_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/expenseText"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:padding="5dp"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/expenseAmount"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/expenseAmount">
+    <requestFocus />
+    </EditText>
+
+    <TextView
+        android:padding="5dp"
+        android:text="@string/expense_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/expenseDescText"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/expenseDescription"
+        android:layout_below="@+id/textView2"
+        android:maxLines="3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <TextView
+        android:padding="5dp"
+        android:text="@string/select_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/categoryDescription"
+        android:textStyle="bold"/>
+
+    <Spinner
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/categoryDescription"
+        android:fadeScrollbars="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/categoryComboBox"></Spinner>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submitBtn"
+            android:id="@+id/submitButton" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resetBtn"
+            android:id="@+id/resetButton" />
+
+    </LinearLayout>
+</LinearLayout>

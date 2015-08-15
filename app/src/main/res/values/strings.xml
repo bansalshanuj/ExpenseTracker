@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ExpenseTracker</string>
+    <string name="hello_world">Hello world! This is just my first application</string>
+    <string name="action_settings">Settings</string>
+    <string name="expense_header">EXPENSE DETAILS</string>
+    <string name="expense_description">Enter the expense description</string>
+    <string name="expense_amount">Enter the expense(Rs.)</string>
+    <string name="submitBtn">Submit</string>
+    <string name="resetBtn">Reset</string>
+    <string name="select_category">Select the category</string>
+    <string name="title_activity_results">Results</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="view_expense">View Expenses</string>
+    <string name="results_category">category wise</string>
+    <string name="results_month">Month Wise</string>
+    <string name="results_year">Year wise</string>
+    <string name="title_activity_category_wiseresult">CategoryWiseresult</string>
+    <string name="title_activity_year_wise_result">YearWiseResult</string>
+    <string name="title_activity_category_wise_result">CategoryWiseResult</string>
+    <string name="title_activity_month_wise_result">MonthWiseResult</string>
+    <string name="title_activity_view_results">Expenses</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="expense_desc">Expense Description: </string>
+    <string name="expense_amt">Expense Amount: </string>
+    <string name="expense_category">Expense Category: </string>
+
+</resources>

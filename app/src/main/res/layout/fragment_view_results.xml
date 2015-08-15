@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.example.shanujbansal.ExpenseTracker.ViewResults$PlaceholderFragment">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show All Expenses"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/retrieveDataButton"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5px"
+        android:layout_marginTop="20px"
+        android:layout_below="@+id/retrieveDataButton"
+        android:id="@+id/allResultsListView"></ListView>
+
+</LinearLayout>

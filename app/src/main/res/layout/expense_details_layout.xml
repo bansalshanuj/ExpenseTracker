@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="7dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/expense_desc" />
+
+        <TextView
+            android:id="@+id/expenseDetailDesc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="7dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/expense_amt" />
+
+        <TextView
+            android:id="@+id/expenseDetailAmt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="7dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/expense_category" />
+
+        <TextView
+            android:id="@+id/expenseDetailCategory"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
