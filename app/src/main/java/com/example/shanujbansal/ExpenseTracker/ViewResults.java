@@ -190,7 +190,7 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             final View rootView = inflater.inflate(R.layout.fragment_view_category_results, container, false);
 
             final Spinner categorySpinner = (Spinner) rootView.findViewById(R.id.categoryComboBox);
-            categorySpinner.setAdapter(new ArrayAdapter<Categories>(getActivity(), android.R.layout.simple_spinner_item, Categories.values()));
+            categorySpinner.setAdapter(new ArrayAdapter<Categories>(getActivity(), android.R.layout.simple_spinner_dropdown_item, Categories.values()));
 
             Button showDataBtn = (Button) rootView.findViewById(R.id.showCategoryResultsBtn);
             showDataBtn.setOnClickListener(new View.OnClickListener() {
@@ -253,7 +253,7 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             final View rootView = inflater.inflate(R.layout.fragment_view_monthly_results, container, false);
 
             final Spinner monthSpinner = (Spinner) rootView.findViewById(R.id.monthComboBox);
-            monthSpinner.setAdapter(new ArrayAdapter<Months>(getActivity(), android.R.layout.simple_spinner_item, Months.values()));
+            monthSpinner.setAdapter(new ArrayAdapter<Months>(getActivity(), android.R.layout.simple_spinner_dropdown_item, Months.values()));
 
             Button showDataBtn = (Button) rootView.findViewById(R.id.showMonthResultsBtn);
             showDataBtn.setOnClickListener(new View.OnClickListener() {
@@ -318,7 +318,7 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
 
             String[] arraySpinner = new String[]{"2015", "2016", "2017", "2018", "2019", "2020"};
             final Spinner categorySpinner = (Spinner) rootView.findViewById(R.id.yearComboBox);
-            categorySpinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, arraySpinner));
+            categorySpinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, arraySpinner));
 
             Button showDataBtn = (Button) rootView.findViewById(R.id.showYrResultsBtn);
             showDataBtn.setOnClickListener(new View.OnClickListener() {

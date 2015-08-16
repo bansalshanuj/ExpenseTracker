@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by shanuj.bansal on 3/28/2015.
@@ -212,5 +213,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(TABLE_EXPENSES, null, values);
         db.close(); // Closing database connection
+    }
+
+    public ArrayList<Expense> getCustomResults(List<String> categoryList, String fromMonth, String toMonth) {
+        boolean isFirst = true;
+        ArrayList<Expense> expensesList = new ArrayList<Expense>();
+        String queryParam = "";
+
+        if (categoryList != null && categoryList.size() > 0) {
+            queryParam += "WHERE " + KEY_EXPENSE_CATEGORY + " IN (";
+            for (String str : categoryList) {
+                if (isFirst)
+                    queryParam += str;
+                else {
+                    queryParam += "," + str;
+                    isFirst = false;
+                }
+            }
+            queryParam += ")";
+        }
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        return expensesList;
     }
 }

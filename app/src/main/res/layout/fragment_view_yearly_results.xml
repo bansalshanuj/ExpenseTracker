@@ -8,25 +8,33 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp">
 
         <Spinner
             android:id="@+id/yearComboBox"
-            android:layout_width="wrap_content"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_gravity="left"></Spinner>
+            android:layout_gravity="center"
+            android:paddingRight="2dp"
+            android:paddingLeft="2dp"
+            android:layout_weight="0.60"></Spinner>
 
         <Button
             android:id="@+id/showYrResultsBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_alignParentRight="true"
             android:layout_gravity="right"
-            android:text="Show" />
+            android:text="@string/show_label"
+            android:paddingRight="2dp"
+            android:paddingLeft="2dp"
+            android:layout_weight="0.40"/>
 
     </LinearLayout>
 

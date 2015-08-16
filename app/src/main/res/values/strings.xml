@@ -24,7 +24,8 @@
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
-
+    <string name="show_label">Show</string>
+    <string name="show_all_expenses_label">Show All Expenses</string>
     <string name="expense_desc">Expense Description:  </string>
     <string name="expense_amt">Expense Amount:  </string>
     <string name="expense_category">Expense Category:  </string>
