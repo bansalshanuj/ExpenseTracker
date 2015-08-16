@@ -36,7 +36,13 @@ public class ExpenseDisplayAdapter extends ArrayAdapter<Expense> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         final LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.expense_display_layout, parent, false);
+
+        // View rowView = inflater.inflate(R.layout.expense_display_layout, parent, false);
+        View rowView = inflater.inflate(R.layout.expense_display_layout, null);
+        ViewGroup parent2 = (ViewGroup) rowView.getParent();
+        if (parent2 != null) {
+            parent2.removeView(rowView);
+        }
         TextView desctextView = (TextView) rowView.findViewById(R.id.expense_description);
         TextView amttextView = (TextView) rowView.findViewById(R.id.expense_amount);
         TextView cattextView = (TextView) rowView.findViewById(R.id.expense_category);
@@ -45,32 +51,49 @@ public class ExpenseDisplayAdapter extends ArrayAdapter<Expense> {
         amttextView.setText(((Expense) values.get(position)).getAmount());
         cattextView.setText(((Expense) values.get(position)).getExpenseCategory().toString());
 
-        final View dialogView = inflater.inflate(R.layout.expense_details_layout, parent, false);
+        // final View dialogView = inflater.inflate(R.layout.expense_details_layout, parent, false);
+        final View dialogView = inflater.inflate(R.layout.expense_details_layout, null);
+        ViewGroup parent1 = (ViewGroup) dialogView.getParent();
+        if (parent1 != null) {
+            parent1.removeView(rowView);
+            parent1 = null;
+        }
+
+        final Dialog dialog = new Dialog(context);
+        // dialog.setContentView(R.layout.expense_details_layout);
+        dialog.setContentView(dialogView);
+
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setTitle("Expense Detail");
+        dialog.setCancelable(true);
+
+        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                dialog.dismiss();
+            }
+        });
+
         LinearLayout containerListView = (LinearLayout) rowView.findViewById(R.id.mainListContainer);
         containerListView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // show the details of this expense.
-                final Dialog dialog = new Dialog(context);
-                dialog.setContentView(R.layout.expense_details_layout);
-                dialog.setCanceledOnTouchOutside(true);
-                dialog.setTitle("Expense Detail");
-                dialog.setCancelable(true);
-
-//                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-//                alertDialogBuilder.setView(dialogView);
 
                 TextView expenseDescText = (TextView) dialogView.findViewById(R.id.expenseDetailDesc);
                 TextView expenseAmtText = (TextView) dialogView.findViewById(R.id.expenseDetailAmt);
                 TextView expenseCategoryText = (TextView) dialogView.findViewById(R.id.expenseDetailCategory);
+                TextView expensePeriodText = (TextView) dialogView.findViewById(R.id.expenseDetailPeriod);
 
-                expenseDescText.setText(((Expense) values.get(position)).getDescription().trim());
-                expenseAmtText.setText(((Expense) values.get(position)).getAmount().trim());
-                expenseCategoryText.setText(((Expense) values.get(position)).getExpenseCategory().toString().trim());
+                Expense detailExpense = (Expense) values.get(position);
+                if (detailExpense != null) {
+                    expenseDescText.setText(detailExpense.getDescription().trim());
+                    expenseAmtText.setText("Rs." + detailExpense.getAmount().trim());
+                    expenseCategoryText.setText(detailExpense.getExpenseCategory().toString().trim());
+                    expensePeriodText.setText(String.valueOf(detailExpense.getMonth()) + "/" + String.valueOf(detailExpense.getYear()));
+                }
 
                 dialog.show();
-//                AlertDialog alert = alertDialogBuilder.create();
-//                alert.show();
             }
         });
 
