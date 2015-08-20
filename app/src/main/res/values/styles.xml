@@ -5,4 +5,12 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!--<style name="AppBaseTheme" parent="android:Theme.Holo.Light"/>-->
+    <!--<style name="AppTheme" parent="AppBaseTheme"/>-->
+
+    <style name="BlackTheme">
+        <item name="android:background">#000000</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
 </resources>

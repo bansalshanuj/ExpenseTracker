@@ -40,6 +40,7 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // setTheme(R.style.BlackTheme);
         setContentView(R.layout.activity_view_results);
 
         slidingTabLayout = (SlidingTabLayout) findViewById(R.id.tab);
@@ -204,27 +205,6 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
                             Toast.makeText(getActivity(), "No records for the selected category", Toast.LENGTH_SHORT).show();
                         final ExpenseDisplayAdapter adapter = new ExpenseDisplayAdapter(getActivity(), expenseList);
                         lv.setAdapter(adapter);
-
-                        // setting the event handler on click of the listview item.
-                        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, final View view,
-                                                    int position, long id) {
-                                Toast.makeText(getActivity(), "yes something could be done", Toast.LENGTH_SHORT).show();
-                                final Expense item = (Expense) parent.getItemAtPosition(position);
-                                view.animate().setDuration(2000).alpha(0)
-                                        .withEndAction(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                expenseList.remove(item);
-                                                Toast.makeText(getActivity(), "Expense deleted", Toast.LENGTH_SHORT).show();
-                                                adapter.notifyDataSetChanged();
-                                                view.setAlpha(1);
-                                            }
-                                        });
-                            }
-                        });
                     }
                 }
             });
@@ -268,27 +248,6 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
 
                         final ExpenseDisplayAdapter adapter = new ExpenseDisplayAdapter(getActivity(), expenseList);
                         lv.setAdapter(adapter);
-
-                        // setting the event handler on click of the listview item.
-                        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, final View view,
-                                                    int position, long id) {
-                                Toast.makeText(getActivity(), "yes something could be done", Toast.LENGTH_SHORT).show();
-                                final Expense item = (Expense) parent.getItemAtPosition(position);
-                                view.animate().setDuration(2000).alpha(0)
-                                        .withEndAction(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                expenseList.remove(item);
-                                                Toast.makeText(getActivity(), "Expense deleted", Toast.LENGTH_SHORT).show();
-                                                adapter.notifyDataSetChanged();
-                                                view.setAlpha(1);
-                                            }
-                                        });
-                            }
-                        });
                     }
                 }
             });
@@ -333,27 +292,6 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
 
                         final ExpenseDisplayAdapter adapter = new ExpenseDisplayAdapter(getActivity(), expenseList);
                         lv.setAdapter(adapter);
-
-                        // setting the event handler on click of the listview item.
-                        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, final View view,
-                                                    int position, long id) {
-                                Toast.makeText(getActivity(), "yes something could be done", Toast.LENGTH_SHORT).show();
-                                final Expense item = (Expense) parent.getItemAtPosition(position);
-                                view.animate().setDuration(2000).alpha(0)
-                                        .withEndAction(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                expenseList.remove(item);
-                                                Toast.makeText(getActivity(), "Expense deleted", Toast.LENGTH_SHORT).show();
-                                                adapter.notifyDataSetChanged();
-                                                view.setAlpha(1);
-                                            }
-                                        });
-                            }
-                        });
                     }
                 }
             });
@@ -395,28 +333,6 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
 
                         final ExpenseDisplayAdapter adapter = new ExpenseDisplayAdapter(getActivity(), expenseList);
                         lv.setAdapter(adapter);
-
-                        // setting the event handler on click of the listview item.
-                        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, final View view,
-                                                    int position, long id) {
-                                Toast.makeText(getActivity(), "yes something could be done", Toast.LENGTH_SHORT).show();
-                                final Expense item = (Expense) parent.getItemAtPosition(position);
-                                view.animate().setDuration(2000).alpha(0)
-                                        .withEndAction(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                expenseList.remove(item);
-                                                Toast.makeText(getActivity(), "Expense deleted", Toast.LENGTH_SHORT).show();
-                                                adapter.notifyDataSetChanged();
-                                                view.setAlpha(1);
-                                            }
-                                        });
-                            }
-                        });
-
                     }
                 }
             });
