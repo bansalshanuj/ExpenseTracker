@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:isScrollContainer="true"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+    <!--Add the custom filter for category-->
+    <Button
+        android:id="@+id/accordianCategoryFilter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="category_filter"
+        android:textColor="#FFFFFFFF" />
+
+    <LinearLayout
+        android:id="@+id/categoryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="true"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/categoryGroceries"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Groceries" />
+
+        <CheckBox
+            android:id="@+id/categoryMovies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movies" />
+
+        <CheckBox
+            android:id="@+id/categoryFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Food" />
+
+        <CheckBox
+            android:id="@+id/categoryEducation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Education" />
+
+        <CheckBox
+            android:id="@+id/categoryKids"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kids" />
+
+        <CheckBox
+            android:id="@+id/categoryPubRestaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PubRestaurant" />
+
+        <CheckBox
+            android:id="@+id/categoryTravel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Travel" />
+
+        <CheckBox
+            android:id="@+id/categoryFuel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fuel" />
+
+        <CheckBox
+            android:id="@+id/categoryParty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Party" />
+
+        <CheckBox
+            android:id="@+id/categoryClothes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clothes" />
+
+        <CheckBox
+            android:id="@+id/categoryTransport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transport" />
+
+        <CheckBox
+            android:id="@+id/categoryGifts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gifts" />
+
+        <CheckBox
+            android:id="@+id/categoryOthers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Others" />
+    </LinearLayout>
+    <!--Done adding the custom filter for category-->
+
+    <!--Add the custom filter for months-->
+    <Button
+        android:id="@+id/accordianMonthFilter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="months_filter"
+        android:textColor="#FFFFFFFF" />
+
+    <LinearLayout
+        android:id="@+id/monthsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="true"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/monthsJanuary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="January" />
+
+        <CheckBox
+            android:id="@+id/monthsFebruary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="February" />
+
+        <CheckBox
+            android:id="@+id/monthsMarch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="March" />
+
+        <CheckBox
+            android:id="@+id/monthsApril"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="April" />
+
+        <CheckBox
+            android:id="@+id/monthsMay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="May" />
+
+        <CheckBox
+            android:id="@+id/monthsJune"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="June" />
+
+        <CheckBox
+            android:id="@+id/monthsJuly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="July" />
+
+        <CheckBox
+            android:id="@+id/monthsAugust"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="August" />
+
+        <CheckBox
+            android:id="@+id/monthsSeptember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="September" />
+
+        <CheckBox
+            android:id="@+id/monthsOctober"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="October" />
+
+        <CheckBox
+            android:id="@+id/monthsNovember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="November" />
+
+        <CheckBox
+            android:id="@+id/monthsDecember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="December" />
+
+    </LinearLayout>
+    <!--Done adding custom filter for months-->
+
+    <!--Add the custom filter for years-->
+    <Button
+        android:id="@+id/accordianYearFilter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="years_filter"
+        android:textColor="#FFFFFFFF" />
+
+    <LinearLayout
+        android:id="@+id/yearsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="true"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/year2015"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2015" />
+
+        <CheckBox
+            android:id="@+id/year2016"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016" />
+
+        <CheckBox
+            android:id="@+id/year2017"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2017" />
+
+        <CheckBox
+            android:id="@+id/year2018"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018" />
+
+        <CheckBox
+            android:id="@+id/year2019"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2019" />
+    </LinearLayout>
+    <!--Done adding custom filter for years-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/retrieveDataButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:text="@string/show_label" />
+
+        <Button
+            android:id="@+id/resetFilterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:text="@string/reset_filters" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/customResultsListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/retrieveDataButton"
+        android:layout_marginTop="20px"
+        android:paddingTop="5px"></ListView>
+</LinearLayout>

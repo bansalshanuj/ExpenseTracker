@@ -15,5 +15,6 @@ public enum Categories {
     Party,
     Clothes,
     Transport,
+    Gifts,
     Others
 }

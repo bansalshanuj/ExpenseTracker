@@ -30,5 +30,9 @@
     <string name="expense_amt">Expense Amount:  </string>
     <string name="expense_category">Expense Category:  </string>
     <string name="expense_period">Expense Period:  </string>
+    <string name="reset_filters">Reset Filters</string>
+    <string name="category_filter">Categories Filter</string>
+    <string name="months_filter">Months Filter</string>
+    <string name="years_filter">Years Filter</string>
 
 </resources>

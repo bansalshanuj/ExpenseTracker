@@ -215,25 +215,73 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
-    public ArrayList<Expense> getCustomResults(List<String> categoryList, String fromMonth, String toMonth) {
-        boolean isFirst = true;
+    public ArrayList<Expense> getCustomResults(List<String> categoryList, List<Integer> monthsList, List<Integer> yearsList) {
+        boolean isFirst = true, isWhereClauseAlreadySet = false;
         ArrayList<Expense> expensesList = new ArrayList<Expense>();
-        String queryParam = "";
+        String queryParam = "SELECT  * FROM " + TABLE_EXPENSES + " ";
 
         if (categoryList != null && categoryList.size() > 0) {
+            isWhereClauseAlreadySet = true;
             queryParam += "WHERE " + KEY_EXPENSE_CATEGORY + " IN (";
             for (String str : categoryList) {
-                if (isFirst)
-                    queryParam += str;
-                else {
-                    queryParam += "," + str;
+                if (isFirst) {
+                    queryParam += "'" + str + "'";
                     isFirst = false;
-                }
+                } else
+                    queryParam += ",'" + str + "'";
+            }
+            queryParam += ")";
+        }
+
+        isFirst = true;
+        if (monthsList != null && monthsList.size() > 0) {
+            queryParam += isWhereClauseAlreadySet ? " AND " + KEY_EXPENSE_MONTH + " IN (" : "WHERE " + KEY_EXPENSE_MONTH + " IN (";
+            isWhereClauseAlreadySet = true;
+            for (Integer str : monthsList) {
+                if (isFirst) {
+                    queryParam += str;
+                    isFirst = false;
+                } else
+                    queryParam += "," + str;
+
+            }
+            queryParam += ")";
+        }
+
+        isFirst = true;
+        if (yearsList != null && yearsList.size() > 0) {
+            queryParam += isWhereClauseAlreadySet ? " AND " + KEY_EXPENSE_YEAR + " IN (" : "WHERE " + KEY_EXPENSE_YEAR + " IN (";
+            for (Integer str : yearsList) {
+                if (isFirst) {
+                    queryParam += str;
+                    isFirst = false;
+                } else
+                    queryParam += "," + str;
+
             }
             queryParam += ")";
         }
 
         SQLiteDatabase db = this.getWritableDatabase();
+        System.out.println("Firing the query: " + queryParam);
+        Cursor cursor = db.rawQuery(queryParam, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                int id = Integer.parseInt(cursor.getString(0));
+                String amount = cursor.getString(1);
+                String desc = cursor.getString(2);
+                String category = cursor.getString(3);
+                int month = Integer.parseInt(cursor.getString(4));
+                int year = Integer.parseInt(cursor.getString(5));
+
+                Expense expense = new Expense(amount, desc.trim(), month, year, category, id);
+
+                // Adding expense to list
+                expensesList.add(expense);
+            } while (cursor.moveToNext());
+        }
         return expensesList;
     }
 }
