@@ -1,6 +1,7 @@
 package com.example.shanujbansal.ExpenseTracker;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,13 +16,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -104,6 +103,8 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+//        View unselectedTab = (View)tab.getCustomView();
+
     }
 
     @Override
@@ -408,11 +409,18 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
                                  Bundle savedInstanceState) {
             final View rootView = inflater.inflate(R.layout.fragment_view_custom_filter_results, container, false);
 
+            final Drawable expandIcon = getResources().getDrawable(R.drawable.expand);
+            final Drawable collapseIcon = getResources().getDrawable(R.drawable.collapse);
+
             final ListView lv = (ListView) rootView.findViewById(R.id.customResultsListView);
 
-            final LinearLayout categoryLayout = (LinearLayout) rootView.findViewById(R.id.categoryLayout);
-            final LinearLayout yearsLayout = (LinearLayout) rootView.findViewById(R.id.yearsLayout);
-            final LinearLayout monthsLayout = (LinearLayout) rootView.findViewById(R.id.monthsLayout);
+            final ScrollView categoryLayout = (ScrollView) rootView.findViewById(R.id.categoryLayout);
+            final ScrollView yearsLayout = (ScrollView) rootView.findViewById(R.id.yearsLayout);
+            final ScrollView monthsLayout = (ScrollView) rootView.findViewById(R.id.monthsLayout);
+
+            categoryLayout.setVisibility(View.GONE);
+            yearsLayout.setVisibility(View.GONE);
+            monthsLayout.setVisibility(View.GONE);
 
             final Button categoryFilterHideShowBtn = (Button) rootView.findViewById(R.id.accordianCategoryFilter);
             final Button yearsFilterHideShowBtn = (Button) rootView.findViewById(R.id.accordianYearFilter);
@@ -515,7 +523,7 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             resetFilterButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ExpenseDisplayAdapter adapter = (ExpenseDisplayAdapter)lv.getAdapter();
+                    ExpenseDisplayAdapter adapter = (ExpenseDisplayAdapter) lv.getAdapter();
                     adapter.clear();
                     adapter.notifyDataSetChanged();
 
@@ -568,18 +576,45 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
                 @Override
                 public void onClick(View v) {
                     categoryLayout.setVisibility(categoryLayout.isShown() ? View.GONE : View.VISIBLE);
+                    if (categoryLayout.isShown()) {
+                        categoryFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, collapseIcon, null);
+                        yearsLayout.setVisibility(View.GONE);
+                        monthsLayout.setVisibility(View.GONE);
+                        yearsFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+                        monthsFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+                    } else {
+                        categoryFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+                    }
                 }
             });
             yearsFilterHideShowBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     yearsLayout.setVisibility(yearsLayout.isShown() ? View.GONE : View.VISIBLE);
+                    if (yearsLayout.isShown()) {
+                        yearsFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, collapseIcon, null);
+                        categoryLayout.setVisibility(View.GONE);
+                        monthsLayout.setVisibility(View.GONE);
+                        monthsFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+                        categoryFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+                    } else {
+                        yearsFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+                    }
                 }
             });
             monthsFilterHideShowBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     monthsLayout.setVisibility(monthsLayout.isShown() ? View.GONE : View.VISIBLE);
+                    if (monthsLayout.isShown()) {
+                        monthsFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, collapseIcon, null);
+                        yearsLayout.setVisibility(View.GONE);
+                        categoryLayout.setVisibility(View.GONE);
+                        yearsFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+                        categoryFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+                    } else {
+                        monthsFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+                    }
                 }
             });
 

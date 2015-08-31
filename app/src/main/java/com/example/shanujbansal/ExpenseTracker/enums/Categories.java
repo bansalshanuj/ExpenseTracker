@@ -8,13 +8,16 @@ public enum Categories {
     Movies,
     Food,
     Education,
-    Kids,
+    Shopping,
     PubRestaurant,
     Travel,
     Fuel,
     Party,
     Clothes,
     Transport,
+    Taxi,
+    Fitness,
+    Kids,
     Gifts,
     Others
 }

@@ -218,7 +218,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<Expense> getCustomResults(List<String> categoryList, List<Integer> monthsList, List<Integer> yearsList) {
         boolean isFirst = true, isWhereClauseAlreadySet = false;
         ArrayList<Expense> expensesList = new ArrayList<Expense>();
-        String queryParam = "SELECT  * FROM " + TABLE_EXPENSES + " ";
+        String queryParam = "SELECT * FROM " + TABLE_EXPENSES + " ";
 
         if (categoryList != null && categoryList.size() > 0) {
             isWhereClauseAlreadySet = true;
