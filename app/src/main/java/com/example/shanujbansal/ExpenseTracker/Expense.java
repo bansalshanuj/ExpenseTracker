@@ -12,18 +12,20 @@ public class Expense {
     private int month;
     private int year;
     private int id;
+    private int dayOfMonth;
     private Categories expenseCategory;
 
     public Expense() {
     }
 
-    public Expense(String amount, String description, int month, int year, String expenseCategory, int id) {
+    public Expense(String amount, String description, int dayOfMonth, int month, int year, String expenseCategory, int id) {
         this.amount = amount;
         this.description = description;
         this.month = month;
         this.year = year;
         this.expenseCategory = Categories.valueOf(expenseCategory);
         this.id = id;
+        this.dayOfMonth = dayOfMonth;
     }
 
     public Categories getExpenseCategory() {
@@ -72,5 +74,13 @@ public class Expense {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getDayOfMonth() {
+        return this.dayOfMonth;
+    }
+
+    public void setDayOfMonth(int dayOfMonth) {
+        this.dayOfMonth = dayOfMonth;
     }
 }

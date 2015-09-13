@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingRight="7dp"
-        android:paddingLeft="7dp">
+        android:paddingLeft="7dp"
+        >
         <Spinner
             android:layout_width="0dip"
             android:layout_height="wrap_content"
@@ -22,7 +23,10 @@
             android:id="@+id/monthComboBox"
             android:paddingRight="2dp"
             android:paddingLeft="2dp"
-            android:layout_weight="0.60"></Spinner>
+            android:layout_weight="0.60"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            style="@style/testTheme"></Spinner>
 
         <Button
             android:layout_width="0dip"
@@ -34,7 +38,10 @@
             android:id="@+id/showMonthResultsBtn"
             android:paddingRight="2dp"
             android:paddingLeft="2dp"
-            android:layout_weight="0.40"/>
+            android:layout_weight="0.40"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            style="@style/testTheme"/>
 
     </LinearLayout>
 

@@ -111,7 +111,6 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
 
-
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -426,6 +425,19 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             final Button yearsFilterHideShowBtn = (Button) rootView.findViewById(R.id.accordianYearFilter);
             final Button monthsFilterHideShowBtn = (Button) rootView.findViewById(R.id.accordianMonthFilter);
 
+            final Button showFiltersButton=(Button)rootView.findViewById(R.id.showFiltersBtn);
+            showFiltersButton.setVisibility(View.GONE);
+            showFiltersButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    categoryFilterHideShowBtn.setVisibility(View.VISIBLE);
+                    yearsFilterHideShowBtn.setVisibility(View.VISIBLE);
+                    monthsFilterHideShowBtn.setVisibility(View.VISIBLE);
+
+                    showFiltersButton.setVisibility(View.GONE);
+                }
+            });
+
             // Categories checkboxes
             final CheckBox categoryGroceries = (CheckBox) rootView.findViewById(R.id.categoryGroceries);
             final CheckBox categoryClothes = (CheckBox) rootView.findViewById(R.id.categoryClothes);
@@ -503,6 +515,12 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
                     yearsLayout.setVisibility(View.GONE);
                     monthsLayout.setVisibility(View.GONE);
 
+                    categoryFilterHideShowBtn.setVisibility(View.GONE);
+                    yearsFilterHideShowBtn.setVisibility(View.GONE);
+                    monthsFilterHideShowBtn.setVisibility(View.GONE);
+
+                    showFiltersButton.setVisibility(View.VISIBLE);
+
                     if (categoriesList.size() == 0 && monthsList.size() == 0 && yearsList.size() == 0) {
                         Toast.makeText(getActivity(), "No filters have been applied. Showing all results.", Toast.LENGTH_SHORT).show();
                     }
@@ -524,8 +542,10 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
                 @Override
                 public void onClick(View v) {
                     ExpenseDisplayAdapter adapter = (ExpenseDisplayAdapter) lv.getAdapter();
-                    adapter.clear();
-                    adapter.notifyDataSetChanged();
+                    if (adapter != null) {
+                        adapter.clear();
+                        adapter.notifyDataSetChanged();
+                    }
 
                     // clear all the filter's lists
                     categoriesList.clear();

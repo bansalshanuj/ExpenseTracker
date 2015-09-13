@@ -1,14 +1,15 @@
 package com.example.shanujbansal.ExpenseTracker;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -66,22 +67,25 @@ public class MainActivity extends ActionBarActivity {
                 case R.id.submitButton: {
 
                     String expenseAmt = amountText.getText().toString();
-                    String expenseDesc =  descriptionText.getText().toString();
-                    if(expenseAmt.isEmpty())
-                    {
+                    String expenseDesc = descriptionText.getText().toString();
+                    if (expenseAmt.isEmpty()) {
                         Toast.makeText(getApplicationContext(), "Please provide the expense amount.", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
-                    if(expenseDesc.isEmpty())
+                    if (expenseDesc.isEmpty())
                         expenseDesc = "N.A.";
 
+                    final DatePicker expenseDate = (DatePicker) findViewById(R.id.expenseDatePicker);
                     // here we need to make the entry that user has done.
                     Calendar c = Calendar.getInstance();
                     int year = c.get(Calendar.YEAR);
                     int month = c.get(Calendar.MONTH) + 1;
+                    year = expenseDate.getYear();
+                    month = expenseDate.getMonth();
+                    int date = expenseDate.getDayOfMonth();
                     String categorySelected = categoryComboBox.getSelectedItem().toString();
-                    Expense objExpense = new Expense(expenseAmt, expenseDesc, month, year, categorySelected, random.nextInt(100000));
+                    Expense objExpense = new Expense(expenseAmt, expenseDesc, date, month, year, categorySelected, random.nextInt(100000));
                     if (dbHelper != null) {
                         dbHelper.addExpense(objExpense);
                     }

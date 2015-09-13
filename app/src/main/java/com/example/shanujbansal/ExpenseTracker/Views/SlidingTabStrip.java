@@ -1,5 +1,6 @@
 package com.example.shanujbansal.ExpenseTracker.Views;
 
+import android.R;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -8,8 +9,6 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
-
-import android.R;
 
 /**
  * Created by shanuj.bansal on 4/2/2015.

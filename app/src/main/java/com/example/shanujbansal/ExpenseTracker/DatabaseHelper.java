@@ -65,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
 
-                Expense expense = new Expense(amount, desc.trim(), month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);
@@ -101,7 +101,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
 
-                Expense expense = new Expense(amount, desc.trim(), month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);
@@ -130,7 +130,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
 
-                Expense expense = new Expense(amount, desc.trim(), month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);
@@ -159,7 +159,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
 
-                Expense expense = new Expense(amount, desc.trim(), month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);
@@ -188,7 +188,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
 
-                Expense expense = new Expense(amount, desc.trim(), month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);
@@ -276,7 +276,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
 
-                Expense expense = new Expense(amount, desc.trim(), month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);

@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="#FFE2E2E2"
-    android:padding="5px">
+    android:padding="5px"
+    style="@style/testTheme">
 
     <LinearLayout
         android:layout_marginLeft="5dp"

@@ -14,7 +14,8 @@
         android:text="@string/show_all_expenses_label"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
-        android:id="@+id/retrieveDataButton"/>
+        android:id="@+id/retrieveDataButton"
+        style="@style/testTheme"/>
 
     <ListView
         android:layout_width="match_parent"

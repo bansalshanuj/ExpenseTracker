@@ -34,5 +34,6 @@
     <string name="category_filter">Categories Filter</string>
     <string name="months_filter">Months Filter</string>
     <string name="years_filter">Years Filter</string>
+    <string name="expense_date">Expense Date</string>
 
 </resources>
