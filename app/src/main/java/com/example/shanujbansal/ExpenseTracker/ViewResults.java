@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -435,6 +436,7 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
                     monthsFilterHideShowBtn.setVisibility(View.VISIBLE);
 
                     showFiltersButton.setVisibility(View.GONE);
+                    lv.setVisibility(View.GONE);
                 }
             });
 
@@ -519,6 +521,10 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
                     yearsFilterHideShowBtn.setVisibility(View.GONE);
                     monthsFilterHideShowBtn.setVisibility(View.GONE);
 
+                    monthsFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+                    categoryFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+                    yearsFilterHideShowBtn.setCompoundDrawablesWithIntrinsicBounds(null, null, expandIcon, null);
+
                     showFiltersButton.setVisibility(View.VISIBLE);
 
                     if (categoriesList.size() == 0 && monthsList.size() == 0 && yearsList.size() == 0) {
@@ -530,6 +536,11 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
 
                         if (expenseList.size() == 0)
                             Toast.makeText(getActivity(), "No expenses to show for the selected filters", Toast.LENGTH_SHORT).show();
+
+                        lv.setVisibility(View.VISIBLE);
+                        LinearLayout.LayoutParams lParams = (LinearLayout.LayoutParams) lv.getLayoutParams();
+                        lParams.weight = 0.65f;
+                        lv.setLayoutParams(lParams);
 
                         final ExpenseDisplayAdapter adapter = new ExpenseDisplayAdapter(getActivity(), expenseList);
                         lv.setAdapter(adapter);
@@ -545,7 +556,14 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
                     if (adapter != null) {
                         adapter.clear();
                         adapter.notifyDataSetChanged();
+                        lv.setVisibility(View.GONE);
                     }
+
+                    categoryFilterHideShowBtn.setVisibility(View.VISIBLE);
+                    yearsFilterHideShowBtn.setVisibility(View.VISIBLE);
+                    monthsFilterHideShowBtn.setVisibility(View.VISIBLE);
+
+                    showFiltersButton.setVisibility(View.GONE);
 
                     // clear all the filter's lists
                     categoriesList.clear();

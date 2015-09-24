@@ -30,6 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_EXPENSE_MONTH = "month";
     private static final String KEY_EXPENSE_YEAR = "year";
     private static final String KEY_EXPENSE_CATEGORY = "category";
+    private static final String KEY_EXPENSE_DAY_OF_YEAR = "dayOfYear";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -39,7 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_EXPENSES_TABLE = "CREATE TABLE " + TABLE_EXPENSES + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_EXPENSE_AMOUNT + " TEXT,"
-                + KEY_EXPENSE_DESC + " TEXT," + KEY_EXPENSE_CATEGORY + " TEXT," + KEY_EXPENSE_MONTH + " INTEGER," + KEY_EXPENSE_YEAR + " INTEGER" + ")";
+                + KEY_EXPENSE_DESC + " TEXT," + KEY_EXPENSE_CATEGORY + " TEXT," + KEY_EXPENSE_MONTH + " INTEGER,"+ KEY_EXPENSE_YEAR + " INTEGER," + KEY_EXPENSE_DAY_OF_YEAR + " INTEGER" + ")";
         db.execSQL(CREATE_EXPENSES_TABLE);
     }
 
@@ -64,8 +65,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String category = cursor.getString(3);
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
+                int dayOfYear = Integer.parseInt(cursor.getString(6));
 
-                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), dayOfYear, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);
@@ -100,8 +102,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String category = cursor.getString(3);
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
+                int dayOfYear = Integer.parseInt(cursor.getString(6));
 
-                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), dayOfYear, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);
@@ -129,8 +132,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String category = cursor.getString(3);
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
+                int dayOfYear = Integer.parseInt(cursor.getString(6));
 
-                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), dayOfYear, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);
@@ -158,8 +162,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String category = cursor.getString(3);
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
+                int dayOfYear = Integer.parseInt(cursor.getString(6));
 
-                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), dayOfYear, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);
@@ -187,8 +192,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String category = cursor.getString(3);
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
+                int dayOfYear = Integer.parseInt(cursor.getString(6));
 
-                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), dayOfYear, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);
@@ -208,6 +214,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_EXPENSE_DESC, expense.getDescription()); // Expense Description
         values.put(KEY_EXPENSE_MONTH, expense.getMonth()); // Expense Month
         values.put(KEY_EXPENSE_YEAR, expense.getYear()); // Expense Year
+        values.put(KEY_EXPENSE_DAY_OF_YEAR, expense.getDayOfMonth()); // Expense Day of Year
         values.put(KEY_EXPENSE_CATEGORY, expense.getExpenseCategory().toString()); // Expense category
 
         // Inserting Row
@@ -275,8 +282,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String category = cursor.getString(3);
                 int month = Integer.parseInt(cursor.getString(4));
                 int year = Integer.parseInt(cursor.getString(5));
+                int dayOfYear = Integer.parseInt(cursor.getString(6));
 
-                Expense expense = new Expense(amount, desc.trim(), 1, month, year, category, id);
+                Expense expense = new Expense(amount, desc.trim(), dayOfYear, month, year, category, id);
 
                 // Adding expense to list
                 expensesList.add(expense);

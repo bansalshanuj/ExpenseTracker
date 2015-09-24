@@ -82,7 +82,7 @@ public class MainActivity extends ActionBarActivity {
                     int year = c.get(Calendar.YEAR);
                     int month = c.get(Calendar.MONTH) + 1;
                     year = expenseDate.getYear();
-                    month = expenseDate.getMonth();
+                    month = expenseDate.getMonth() + 1;
                     int date = expenseDate.getDayOfMonth();
                     String categorySelected = categoryComboBox.getSelectedItem().toString();
                     Expense objExpense = new Expense(expenseAmt, expenseDesc, date, month, year, categorySelected, random.nextInt(100000));

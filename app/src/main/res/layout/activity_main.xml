@@ -14,7 +14,6 @@
         android:layout_height="fill_parent">
 
         <LinearLayout
-            style="@style/testTheme"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical">
@@ -132,14 +131,12 @@
 
                 <Button
                     android:id="@+id/resetButton"
-                    style="@style/testTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/resetBtn" />
 
                 <Button
                     android:id="@+id/submitButton"
-                    style="@style/testTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/submitBtn" />
