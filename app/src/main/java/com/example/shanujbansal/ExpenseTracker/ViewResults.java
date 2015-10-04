@@ -1,6 +1,7 @@
 package com.example.shanujbansal.ExpenseTracker;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -110,6 +111,11 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
 
     /**
@@ -426,7 +432,7 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             final Button yearsFilterHideShowBtn = (Button) rootView.findViewById(R.id.accordianYearFilter);
             final Button monthsFilterHideShowBtn = (Button) rootView.findViewById(R.id.accordianMonthFilter);
 
-            final Button showFiltersButton=(Button)rootView.findViewById(R.id.showFiltersBtn);
+            final Button showFiltersButton = (Button) rootView.findViewById(R.id.showFiltersBtn);
             showFiltersButton.setVisibility(View.GONE);
             showFiltersButton.setOnClickListener(new View.OnClickListener() {
                 @Override
