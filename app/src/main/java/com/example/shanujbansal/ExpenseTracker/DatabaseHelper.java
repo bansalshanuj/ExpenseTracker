@@ -270,7 +270,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         SQLiteDatabase db = this.getWritableDatabase();
-        System.out.println("Firing the query: " + queryParam);
         Cursor cursor = db.rawQuery(queryParam, null);
 
         // looping through all rows and adding to list

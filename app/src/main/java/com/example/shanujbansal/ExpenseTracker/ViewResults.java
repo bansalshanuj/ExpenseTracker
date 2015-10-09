@@ -68,7 +68,7 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         // make sure the tabs are equally spaced.
-        slidingTabLayout.setDistributeEvenly(true);
+        // slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setViewPager(mViewPager);
     }
 
@@ -375,7 +375,6 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 String checkedValue = buttonView.getText().toString();
-                // System.out.println(buttonView.getText().toString());
                 if (isChecked) categoriesList.add(checkedValue);
                 else if (categoriesList.indexOf(checkedValue) > -1)
                     categoriesList.remove(categoriesList.indexOf(checkedValue));
@@ -387,7 +386,6 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Integer checkedValue = Months.valueOf(buttonView.getText().toString()).ordinal() + 1;
-                // System.out.println(buttonView.getText().toString());
                 if (isChecked) monthsList.add(checkedValue);
                 else if (monthsList.indexOf(checkedValue) > -1)
                     monthsList.remove(monthsList.indexOf(checkedValue));
@@ -399,7 +397,6 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Integer checkedValue = Integer.parseInt(buttonView.getText().toString());
-                // System.out.println(buttonView.getText().toString());
                 if (isChecked) yearsList.add(checkedValue);
                 else if (yearsList.indexOf(checkedValue) > -1)
                     yearsList.remove(yearsList.indexOf(checkedValue));
