@@ -88,7 +88,7 @@ public class ExpenseDisplayAdapter extends ArrayAdapter<Expense> {
                 Expense detailExpense = (Expense) values.get(position);
                 if (detailExpense != null) {
                     expenseDescText.setText(detailExpense.getDescription().trim());
-                    expenseAmtText.setText("Rs." + detailExpense.getAmount().trim());
+                    expenseAmtText.setText("₹ " + detailExpense.getAmount().trim());
                     expenseCategoryText.setText(detailExpense.getExpenseCategory().toString().trim());
                     expensePeriodText.setText(String.valueOf(detailExpense.getDayOfMonth()) + "/" + String.valueOf(detailExpense.getMonth()) + "/" + String.valueOf(detailExpense.getYear()));
                 }

@@ -6,7 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="expense_header">EXPENSE DETAILS</string>
     <string name="expense_description">Enter the expense description</string>
-    <string name="expense_amount">Enter the expense(Rs.)</string>
+    <string name="expense_amount">Enter the expense(₹)</string>
     <string name="submitBtn">Submit</string>
     <string name="resetBtn">Reset</string>
     <string name="select_category">Select the category</string>
@@ -36,4 +36,5 @@
     <string name="years_filter">Years Filter</string>
     <string name="expense_date">Expense Date</string>
     <string name="apply_filters">Apply Filters</string>
+    <string name="share">Share</string>
 </resources>

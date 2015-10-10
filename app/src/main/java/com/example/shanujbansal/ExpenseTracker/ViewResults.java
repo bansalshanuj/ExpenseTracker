@@ -93,6 +93,19 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             Intent addExpenseIntent = new Intent(this, MainActivity.class);
             startActivity(addExpenseIntent);
             return true;
+        } else if (id == R.id.menu_item_share) {
+            //create the send intent
+            Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+            //set the type
+            shareIntent.setType("text/plain");
+            //add a subject
+            shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Hey, have you tried this expense tracking application yet?");
+            //build the body of the message to be shared
+            String shareMessage = "You could very well track your expenses. I think you would like it";
+            //add the message
+            shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareMessage);
+            //start the chooser for sharing
+            startActivity(Intent.createChooser(shareIntent, "Share via"));
         }
 
         return super.onOptionsItemSelected(item);
