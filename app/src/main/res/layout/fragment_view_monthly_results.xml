@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="3dp"
             android:layout_marginRight="3dp"
-            android:layout_weight="0.60"
+            android:layout_weight="0.40"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"></Spinner>
 
@@ -36,10 +36,24 @@
             android:layout_gravity="right"
             android:layout_marginLeft="3dp"
             android:layout_marginRight="3dp"
-            android:layout_weight="0.40"
+            android:layout_weight="0.30"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"
             android:text="@string/show_label" />
+
+        <Button
+            android:id="@+id/showMonthpictorialResultsBtn"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="right"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="0.20"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:background="@drawable/pictorial_representation_icon"/>
 
     </LinearLayout>
 

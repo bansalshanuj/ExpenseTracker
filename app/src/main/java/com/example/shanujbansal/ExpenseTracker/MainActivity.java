@@ -50,7 +50,6 @@ public class MainActivity extends ActionBarActivity {
         //Test Purpose
         Button retrieveButton = (Button) findViewById(R.id.retrieveDataButton);
         resetButton.setOnClickListener(buttonListener);
-
     }
 
     AdapterView.OnItemSelectedListener comboboxListener = new AdapterView.OnItemSelectedListener() {

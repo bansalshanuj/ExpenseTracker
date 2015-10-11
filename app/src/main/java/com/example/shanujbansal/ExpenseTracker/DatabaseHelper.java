@@ -40,7 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_EXPENSES_TABLE = "CREATE TABLE " + TABLE_EXPENSES + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_EXPENSE_AMOUNT + " TEXT,"
-                + KEY_EXPENSE_DESC + " TEXT," + KEY_EXPENSE_CATEGORY + " TEXT," + KEY_EXPENSE_MONTH + " INTEGER,"+ KEY_EXPENSE_YEAR + " INTEGER," + KEY_EXPENSE_DAY_OF_YEAR + " INTEGER" + ")";
+                + KEY_EXPENSE_DESC + " TEXT," + KEY_EXPENSE_CATEGORY + " TEXT," + KEY_EXPENSE_MONTH + " INTEGER," + KEY_EXPENSE_YEAR + " INTEGER," + KEY_EXPENSE_DAY_OF_YEAR + " INTEGER" + ")";
         db.execSQL(CREATE_EXPENSES_TABLE);
     }
 
@@ -220,6 +220,73 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(TABLE_EXPENSES, null, values);
         db.close(); // Closing database connection
+    }
+
+    public double calcTotalExpByCategoryAndMonth(String category, int month) {
+        double expenditure = 0;
+
+        // Select All Query
+        String selectQuery = "SELECT  SUM(" + KEY_EXPENSE_AMOUNT + ") FROM " + TABLE_EXPENSES + " WHERE " + KEY_EXPENSE_MONTH + "=" + month
+                + " AND " + KEY_EXPENSE_CATEGORY + "=\'" + category + "\'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                String exp = cursor.getString(0);
+                if (exp == null || exp.isEmpty())
+                    exp = "0.0";
+                expenditure = Double.parseDouble(exp);
+            } while (cursor.moveToNext());
+        }
+
+        return expenditure;
+    }
+
+    public double monthTotalExpenditure(int month) {
+        double expenditure = 0;
+
+        // Select All Query
+        String selectQuery = "SELECT  SUM(" + KEY_EXPENSE_AMOUNT + ") FROM " + TABLE_EXPENSES + " WHERE " + KEY_EXPENSE_MONTH + "=" + month;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                String exp = cursor.getString(0);
+                if (exp == null || exp.isEmpty())
+                    exp = "0.0";
+                expenditure = Double.parseDouble(exp);
+            } while (cursor.moveToNext());
+        }
+
+        return expenditure;
+    }
+
+    public double yearTotalExpenditure(int year) {
+        System.out.println("In method yearTotalExpenditure");
+        double expenditure = 0.0;
+
+        String selectQuery = "SELECT  SUM(" + KEY_EXPENSE_AMOUNT + ") FROM " + TABLE_EXPENSES + " WHERE " + KEY_EXPENSE_YEAR + "=" + year;
+        System.out.println("select query:" + selectQuery);
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                String exp = cursor.getString(0);
+                if (exp == null || exp.isEmpty())
+                    exp = "0.0";
+                expenditure = Double.parseDouble(exp);
+            } while (cursor.moveToNext());
+        }
+
+        return expenditure;
     }
 
     public ArrayList<Expense> getCustomResults(List<String> categoryList, List<Integer> monthsList, List<Integer> yearsList) {

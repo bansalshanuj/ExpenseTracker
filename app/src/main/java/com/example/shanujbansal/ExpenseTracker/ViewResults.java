@@ -2,6 +2,7 @@ package com.example.shanujbansal.ExpenseTracker;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -31,6 +32,11 @@ import com.example.shanujbansal.ExpenseTracker.Views.SlidingTabLayout;
 import com.example.shanujbansal.ExpenseTracker.enums.Categories;
 import com.example.shanujbansal.ExpenseTracker.enums.Months;
 
+import org.achartengine.ChartFactory;
+import org.achartengine.model.CategorySeries;
+import org.achartengine.renderer.DefaultRenderer;
+import org.achartengine.renderer.SimpleSeriesRenderer;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -42,6 +48,55 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
     SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private DatabaseHelper dbHelper = new DatabaseHelper(this);
+
+    private void openChart(String[] code, double[] distribution, int[] colors) {
+
+        // Pie Chart Section Names
+//        String[] code = new String[] {
+//                "Eclair & Older", "Froyo", "Gingerbread", "Honeycomb",
+//                "IceCream Sandwich", "Jelly Bean"
+//        };
+
+        // Pie Chart Section Value
+//        double[] distribution = { 3.9, 12.9, 55.8, 1.9, 23.7, 1.8 } ;
+
+        // Color of each Pie Chart Sections
+//        int[] colors = { Color.BLUE, Color.MAGENTA, Color.GREEN, Color.CYAN, Color.RED,
+//                Color.YELLOW };
+
+        // Instantiating CategorySeries to plot Pie Chart
+        CategorySeries distributionSeries = new CategorySeries(" Android version distribution as on October 1, 2012");
+        for (int i = 0; i < distribution.length; i++) {
+            // Adding a slice with its values and name to the Pie Chart
+            distributionSeries.add(code[i], distribution[i]);
+        }
+
+        // Instantiating a renderer for the Pie Chart
+        DefaultRenderer defaultRenderer = new DefaultRenderer();
+        for (int i = 0; i < distribution.length; i++) {
+            SimpleSeriesRenderer seriesRenderer = new SimpleSeriesRenderer();
+            seriesRenderer.setColor(colors[i]);
+            seriesRenderer.setDisplayChartValues(true);
+            // Adding a renderer for a slice
+            defaultRenderer.addSeriesRenderer(seriesRenderer);
+        }
+
+        defaultRenderer.setChartTitle("Categories Distribution ");
+        defaultRenderer.setChartTitleTextSize(20);
+        defaultRenderer.setLegendTextSize(30);
+        defaultRenderer.setApplyBackgroundColor(true);
+        defaultRenderer.setBackgroundColor(Color.BLACK);
+        defaultRenderer.setLabelsColor(Color.WHITE);
+        defaultRenderer.setLabelsTextSize(35);
+        defaultRenderer.setShowLabels(true);
+
+        defaultRenderer.setZoomButtonsVisible(true);
+
+        // Creating an intent to plot bar chart using dataset and multipleRenderer
+        Intent intent = ChartFactory.getPieChartIntent(getBaseContext(), distributionSeries, defaultRenderer, "Categorization");
+        // Start Activity
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -244,6 +299,29 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
                 }
             });
 
+            Button pictorialDataShowBtn = (Button) rootView.findViewById(R.id.showCategorypictorialResultsBtn);
+            pictorialDataShowBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String chosenCategory = categorySpinner.getSelectedItem().toString();
+                    Months[] vals = Months.values();
+                    String[] code = new String[vals.length];
+                    for (int i = 0; i < vals.length; i++) {
+                        code[i] = vals[i].toString();
+                    }
+
+                    double[] distribution = new double[vals.length];
+                    for (int i = 0; i < vals.length; i++) {
+                        distribution[i] = dbHelper.calcTotalExpByCategoryAndMonth(chosenCategory, i + 1);
+                    }
+
+                    int[] colors = {Color.BLUE, Color.MAGENTA, Color.GREEN, Color.CYAN, Color.RED,
+                            Color.GRAY, Color.YELLOW, Color.rgb(253, 105, 89), Color.WHITE, Color.rgb(189, 153, 188),
+                            Color.rgb(146, 197, 147), Color.rgb(250, 187, 92)};
+                    openChart(code, distribution, colors);
+                }
+            });
+
             return rootView;
         }
     }
@@ -284,6 +362,30 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
                         final ExpenseDisplayAdapter adapter = new ExpenseDisplayAdapter(getActivity(), expenseList);
                         lv.setAdapter(adapter);
                     }
+                }
+            });
+
+            Button pictorialDataShowBtn = (Button) rootView.findViewById(R.id.showMonthpictorialResultsBtn);
+            pictorialDataShowBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int month = monthSpinner.getSelectedItemPosition() + 1;
+                    Categories[] vals = Categories.values();
+                    String[] code = new String[vals.length];
+                    for (int i = 0; i < vals.length; i++) {
+                        code[i] = vals[i].toString();
+                    }
+
+                    double[] distribution = new double[vals.length];
+                    for (int i = 0; i < vals.length; i++) {
+                        distribution[i] = dbHelper.calcTotalExpByCategoryAndMonth(vals[i].toString(), month);
+                    }
+
+                    int[] colors = {Color.BLUE, Color.MAGENTA, Color.GREEN, Color.CYAN, Color.RED,
+                            Color.GRAY, Color.YELLOW, Color.rgb(253, 105, 89), Color.WHITE, Color.rgb(189, 153, 188),
+                            Color.rgb(146, 197, 147), Color.rgb(250, 187, 92), Color.rgb(199, 157, 143), Color.rgb(94, 249, 241), Color.rgb(251, 91, 180),
+                            Color.rgb(147, 143, 199)};
+                    openChart(code, distribution, colors);
                 }
             });
 
@@ -329,6 +431,24 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
                         final ExpenseDisplayAdapter adapter = new ExpenseDisplayAdapter(getActivity(), expenseList);
                         lv.setAdapter(adapter);
                     }
+                }
+            });
+
+            Button pictorialDataShowBtn = (Button) rootView.findViewById(R.id.showYrpictorialResultsBtn);
+            pictorialDataShowBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String[] code = new String[]{"2015", "2016", "2017", "2018", "2019"};
+                    double[] distribution = {};
+                    if (dbHelper != null) {
+                        distribution = new double[]{dbHelper.yearTotalExpenditure(2015),
+                                dbHelper.yearTotalExpenditure(2016),
+                                dbHelper.yearTotalExpenditure(2017),
+                                dbHelper.yearTotalExpenditure(2018),
+                                dbHelper.yearTotalExpenditure(2019)};
+                    }
+                    int[] colors = {Color.BLUE, Color.MAGENTA, Color.GREEN, Color.CYAN, Color.RED};
+                    openChart(code, distribution, colors);
                 }
             });
 
