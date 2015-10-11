@@ -29,6 +29,13 @@ public class MainActivity extends ActionBarActivity {
         // setTheme(R.style.BlackTheme);
         setContentView(R.layout.activity_main);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setIcon(R.drawable.ic_launcher);
+        }
+        if (getActionBar() != null) {
+            getActionBar().setIcon(R.drawable.ic_launcher);
+        }
+
         dbHelper = new DatabaseHelper(this);
 
         Button submitButton = (Button) findViewById(R.id.submitButton);
@@ -134,6 +141,7 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.view_expense_action) {
             // we need to open the different page for this.
             Intent resultsIntent = new Intent(this, ViewResults.class);
+            resultsIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(resultsIntent);
             return true;
         } else if (id == R.id.menu_item_share) {
@@ -144,7 +152,8 @@ public class MainActivity extends ActionBarActivity {
             //add a subject
             shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Hey, have you tried this expense tracking application yet?");
             //build the body of the message to be shared
-            String shareMessage = "You could very well track your expenses. I think you would like it";
+            String shareMessage = "You could very well track your expenses. I think you would like it. \n" +
+                    "https://play.google.com/store/apps/details?id=com.example.shanujbansal.ExpenseTracker&hl=en";
             //add the message
             shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareMessage);
             //start the chooser for sharing

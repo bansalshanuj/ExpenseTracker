@@ -48,6 +48,12 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
         super.onCreate(savedInstanceState);
         // setTheme(R.style.BlackTheme);
         setContentView(R.layout.activity_view_results);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setIcon(R.drawable.ic_launcher);
+        }
+        if (getActionBar() != null) {
+            getActionBar().setIcon(R.drawable.ic_launcher);
+        }
 
         slidingTabLayout = (SlidingTabLayout) findViewById(R.id.tab);
 
@@ -91,6 +97,7 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             return true;
         } else if (id == R.id.add_expense_settings) {
             Intent addExpenseIntent = new Intent(this, MainActivity.class);
+            addExpenseIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(addExpenseIntent);
             return true;
         } else if (id == R.id.menu_item_share) {
@@ -101,7 +108,8 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             //add a subject
             shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Hey, have you tried this expense tracking application yet?");
             //build the body of the message to be shared
-            String shareMessage = "You could very well track your expenses. I think you would like it";
+            String shareMessage = "You could very well track your expenses. I think you would like it. \n" +
+                    "https://play.google.com/store/apps/details?id=com.example.shanujbansal.ExpenseTracker&hl=en";
             //add the message
             shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareMessage);
             //start the chooser for sharing
