@@ -50,22 +50,8 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
     private DatabaseHelper dbHelper = new DatabaseHelper(this);
 
     private void openChart(String[] code, double[] distribution, int[] colors) {
-
-        // Pie Chart Section Names
-//        String[] code = new String[] {
-//                "Eclair & Older", "Froyo", "Gingerbread", "Honeycomb",
-//                "IceCream Sandwich", "Jelly Bean"
-//        };
-
-        // Pie Chart Section Value
-//        double[] distribution = { 3.9, 12.9, 55.8, 1.9, 23.7, 1.8 } ;
-
-        // Color of each Pie Chart Sections
-//        int[] colors = { Color.BLUE, Color.MAGENTA, Color.GREEN, Color.CYAN, Color.RED,
-//                Color.YELLOW };
-
         // Instantiating CategorySeries to plot Pie Chart
-        CategorySeries distributionSeries = new CategorySeries(" Android version distribution as on October 1, 2012");
+        CategorySeries distributionSeries = new CategorySeries("Pictorial Distribution");
         for (int i = 0; i < distribution.length; i++) {
             // Adding a slice with its values and name to the Pie Chart
             distributionSeries.add(code[i], distribution[i]);
@@ -81,7 +67,7 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
             defaultRenderer.addSeriesRenderer(seriesRenderer);
         }
 
-        defaultRenderer.setChartTitle("Categories Distribution ");
+        defaultRenderer.setChartTitle("Pictorial Distribution");
         defaultRenderer.setChartTitleTextSize(20);
         defaultRenderer.setLegendTextSize(30);
         defaultRenderer.setApplyBackgroundColor(true);
@@ -89,6 +75,7 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
         defaultRenderer.setLabelsColor(Color.WHITE);
         defaultRenderer.setLabelsTextSize(35);
         defaultRenderer.setShowLabels(true);
+        defaultRenderer.setDisplayValues(true);
 
         defaultRenderer.setZoomButtonsVisible(true);
 
