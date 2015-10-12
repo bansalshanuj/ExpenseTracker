@@ -225,14 +225,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public double calcTotalExpByCategoryAndMonth(String category, int month) {
         double expenditure = 0;
 
-        // Select All Query
         String selectQuery = "SELECT  SUM(" + KEY_EXPENSE_AMOUNT + ") FROM " + TABLE_EXPENSES + " WHERE " + KEY_EXPENSE_MONTH + "=" + month
                 + " AND " + KEY_EXPENSE_CATEGORY + "=\'" + category + "\'";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
                 String exp = cursor.getString(0);
@@ -268,15 +266,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public double yearTotalExpenditure(int year) {
-        System.out.println("In method yearTotalExpenditure");
         double expenditure = 0.0;
 
         String selectQuery = "SELECT  SUM(" + KEY_EXPENSE_AMOUNT + ") FROM " + TABLE_EXPENSES + " WHERE " + KEY_EXPENSE_YEAR + "=" + year;
-        System.out.println("select query:" + selectQuery);
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
                 String exp = cursor.getString(0);

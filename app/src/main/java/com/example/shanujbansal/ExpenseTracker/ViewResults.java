@@ -91,9 +91,11 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
         // setTheme(R.style.BlackTheme);
         setContentView(R.layout.activity_view_results);
         if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setIcon(R.drawable.ic_launcher);
         }
         if (getActionBar() != null) {
+            getActionBar().setDisplayShowHomeEnabled(true);
             getActionBar().setIcon(R.drawable.ic_launcher);
         }
 

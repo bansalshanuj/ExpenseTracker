@@ -30,9 +30,11 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setIcon(R.drawable.ic_launcher);
         }
         if (getActionBar() != null) {
+            getActionBar().setDisplayShowHomeEnabled(true);
             getActionBar().setIcon(R.drawable.ic_launcher);
         }
 
