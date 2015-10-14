@@ -48,18 +48,23 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
     SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private DatabaseHelper dbHelper = new DatabaseHelper(this);
+    private int actualValidCount = 0;
 
     private void openChart(String[] code, double[] distribution, int[] colors) {
         // Instantiating CategorySeries to plot Pie Chart
         CategorySeries distributionSeries = new CategorySeries("Pictorial Distribution");
-        for (int i = 0; i < distribution.length; i++) {
+        int distributionLength = distribution.length;
+        for (int i = 0; i < distributionLength; i++) {
             // Adding a slice with its values and name to the Pie Chart
-            distributionSeries.add(code[i], distribution[i]);
+            if (distribution[i] > 0.0) {
+                distributionSeries.add(code[i], distribution[i]);
+                actualValidCount++;
+            }
         }
 
         // Instantiating a renderer for the Pie Chart
         DefaultRenderer defaultRenderer = new DefaultRenderer();
-        for (int i = 0; i < distribution.length; i++) {
+        for (int i = 0; i < actualValidCount; i++) {
             SimpleSeriesRenderer seriesRenderer = new SimpleSeriesRenderer();
             seriesRenderer.setColor(colors[i]);
             seriesRenderer.setDisplayChartValues(true);
@@ -76,13 +81,13 @@ public class ViewResults extends ActionBarActivity implements ActionBar.TabListe
         defaultRenderer.setLabelsTextSize(35);
         defaultRenderer.setShowLabels(true);
         defaultRenderer.setDisplayValues(true);
-
         defaultRenderer.setZoomButtonsVisible(true);
 
         // Creating an intent to plot bar chart using dataset and multipleRenderer
-        Intent intent = ChartFactory.getPieChartIntent(getBaseContext(), distributionSeries, defaultRenderer, "Categorization");
-        // Start Activity
-        startActivity(intent);
+        Intent pieChartIntent = ChartFactory.getPieChartIntent(getBaseContext(), distributionSeries, defaultRenderer, "Categorization");
+        pieChartIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(pieChartIntent);
+        actualValidCount = 0;
     }
 
     @Override
