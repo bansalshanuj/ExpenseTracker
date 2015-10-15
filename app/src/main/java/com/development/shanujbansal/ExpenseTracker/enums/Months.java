@@ -1,4 +1,4 @@
-package com.example.shanujbansal.ExpenseTracker.enums;
+package com.development.shanujbansal.ExpenseTracker.enums;
 
 /**
  * Created by shanuj.bansal on 4/4/2015.

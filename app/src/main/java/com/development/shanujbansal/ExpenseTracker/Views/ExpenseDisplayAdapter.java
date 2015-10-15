@@ -1,4 +1,4 @@
-package com.example.shanujbansal.ExpenseTracker.Views;
+package com.development.shanujbansal.ExpenseTracker.Views;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -12,9 +12,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.shanujbansal.ExpenseTracker.DatabaseHelper;
-import com.example.shanujbansal.ExpenseTracker.Expense;
-import com.example.shanujbansal.ExpenseTracker.R;
+import com.development.shanujbansal.ExpenseTracker.DatabaseHelper;
+import com.development.shanujbansal.ExpenseTracker.Expense;
+import com.development.shanujbansal.ExpenseTracker.R;
 
 import java.util.ArrayList;
 

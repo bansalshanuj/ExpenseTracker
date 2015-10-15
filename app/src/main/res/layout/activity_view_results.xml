@@ -2,10 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.shanujbansal.ExpenseTracker.ViewResults">
+    tools:context="com.development.shanujbansal.ExpenseTracker.ViewResults">
 
 
-    <com.example.shanujbansal.ExpenseTracker.Views.SlidingTabLayout
+    <com.development.shanujbansal.ExpenseTracker.Views.SlidingTabLayout
         android:id="@+id/tab"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />

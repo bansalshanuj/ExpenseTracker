@@ -1,4 +1,4 @@
-package com.example.shanujbansal.ExpenseTracker.Views;
+package com.development.shanujbansal.ExpenseTracker.Views;
 
 /**
  * Created by shanuj.bansal on 4/2/2015.
@@ -54,7 +54,7 @@ class SlidingTabStrip extends LinearLayout {
 
         TypedValue outValue = new TypedValue();
         context.getTheme().resolveAttribute(R.attr.colorForeground, outValue, true);
-        final int themeForegroundColor =  outValue.data;
+        final int themeForegroundColor = outValue.data;
 
         mDefaultBottomBorderColor = setColorAlpha(themeForegroundColor,
                 DEFAULT_BOTTOM_BORDER_COLOR_ALPHA);

@@ -1,6 +1,6 @@
-package com.example.shanujbansal.ExpenseTracker;
+package com.development.shanujbansal.ExpenseTracker;
 
-import com.example.shanujbansal.ExpenseTracker.enums.Categories;
+import com.development.shanujbansal.ExpenseTracker.enums.Categories;
 
 /**
  * Created by shanuj.bansal on 3/28/2015.

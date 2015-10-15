@@ -1,4 +1,4 @@
-package com.example.shanujbansal.ExpenseTracker;
+package com.development.shanujbansal.ExpenseTracker;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.shanujbansal.ExpenseTracker.enums.Categories;
+import com.development.shanujbansal.ExpenseTracker.enums.Categories;
 
 import java.util.Calendar;
 import java.util.Random;
@@ -154,7 +154,7 @@ public class MainActivity extends ActionBarActivity {
             shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Hey, have you tried this expense tracking application yet?");
             //build the body of the message to be shared
             String shareMessage = "You could very well track your expenses. I think you would like it. \n" +
-                    "https://play.google.com/store/apps/details?id=com.example.shanujbansal.ExpenseTracker&hl=en";
+                    "https://play.google.com/store/apps/details?id=com.development.shanujbansal.ExpenseTracker&hl=en";
             //add the message
             shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareMessage);
             //start the chooser for sharing

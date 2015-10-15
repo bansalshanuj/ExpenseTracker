@@ -1,4 +1,4 @@
-package com.example.shanujbansal.ExpenseTracker;
+package com.development.shanujbansal.ExpenseTracker;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -13,13 +13,13 @@ import java.util.List;
  * Created by shanuj.bansal on 3/28/2015.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
+    private static DatabaseHelper _instance;
+
     // All Static variables
     // Database Version
     private static final int DATABASE_VERSION = 1;
-
     // Database Name
     private static final String DATABASE_NAME = "ExpenseTracker";
-
     // expenses table name
     private static final String TABLE_EXPENSES = "expenses";
 
@@ -31,6 +31,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_EXPENSE_YEAR = "year";
     private static final String KEY_EXPENSE_CATEGORY = "category";
     private static final String KEY_EXPENSE_DAY_OF_YEAR = "dayOfYear";
+
+    public static DatabaseHelper getInstance(Context context) {
+        if (_instance == null) {
+            _instance = new DatabaseHelper(context);
+        }
+        return _instance;
+    }
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
